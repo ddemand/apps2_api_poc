@@ -1,5 +1,21 @@
 {
-  "ovUrl": "",
-  "ovAccessKey": "",
-  "ovSecretKey": ""
+	"api_keys":
+	[
+		{
+		"api_name": "apps2_api_key",
+		"api_key": ""
+		},
+		{
+		"api_name": "azure_foundry",
+		"api_key": ""
+		},
+		{
+		"api_name": "BASE_URL",
+		"api_key": ""
+		},
+		{
+		"api_name": "AZURE_URL",
+		"api_key":  ""
+		}
+	]
 }
