@@ -5,12 +5,20 @@ Email: ddemand@onevizion.com
 Date: 3/27/2026
 """
 
-# ====== Import the required modules
+# ====== Install initial modules and dependencies
+import subprocess
+import sys
+import glob
 import json
 import io
+import os
+
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'python_dependencies.ini'])
+
+
+# ====== Import the required modules
 import pandas as pd
 import requests
-import os
 from openai import OpenAI
 import markdown
 import re
@@ -24,13 +32,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, ListFlowabl
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
 from datetime import datetime
-import sys
-import subprocess
-import glob
 from onevizion import Trackor
-
-# ====== Install dependencies
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'python_dependencies.ini'])
 
 # ====== Set variables and other environmental items
 pd.set_option('display.max_rows', None)
