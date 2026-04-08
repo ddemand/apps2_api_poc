@@ -1,4 +1,4 @@
-command = python3 start_module.py
+command = python3 main.py
 settings_file_name = settings.json
 default_schedule = 0 0 0/1 * * ?
 read_from_stdout = false
