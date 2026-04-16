@@ -59,7 +59,7 @@ def get_key(key: str) -> str | None:
     try:
         with open(file_path, "r") as f:
             data = json.load(f)
-        for api in data.get("keys", []):git
+        for api in data.get("keys", []):
             if api.get("key") == key:
                 return api.get("value")
     except Exception as e:
