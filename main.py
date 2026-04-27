@@ -54,7 +54,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ====== Get keys
-def get_key(key: str) -> str | None:
+def get_key(key: str):
     file_path = "settings.json"
     try:
         with open(file_path, "r") as f:
@@ -69,22 +69,22 @@ def get_key(key: str) -> str | None:
 # ====== Get API key's, endpoints and URL's
 apps2_api_key = get_key("apps2_api_key")
 azure_foundry_api_key = get_key("azure_foundry")
-azure_url = get_key("AZURE_URL")
-data_url = get_key("DATA_URL")
+azure_url = get_key("AZURE_API")
+data_url = get_key("DATA_ENDPOINT")
 
 
-url_subdomain = get_key("URL_SUBDOMAIN")
+domain_url = get_key("DOMAIN_URL")
 destination_field = get_key("DESTINATION_FIELD")
 trackor_type = get_key("TRACKOR_TYPE")
 csv_dimension_column = get_key("CSV_DIMENSION_COLUMN")
-base_url = f'https://{url_subdomain}.onevizion.com/api/v3/trackor/'
+base_url = f'https://{domain_url}.onevizion.com/api/v3/trackor/'
 
-if not all([apps2_api_key, azure_foundry_api_key, azure_url, url_subdomain, base_url]):
+if not all([apps2_api_key, azure_foundry_api_key, azure_url, domain_url, base_url]):
     raise RuntimeError("One or more required API keys are missing")
 
 # ====== Get the data from the OneVizion API
 logger.info("Fetching project data from OneVizion API")
-response = requests.get(data_url, headers= {"Authorization": apps2_api_key, "Accept": "text/csv"})
+response = requests.get(domain_url + data_url, headers= {"Authorization": apps2_api_key, "Accept": "text/csv"})
 response.raise_for_status()
 
 csv_text = response.content.decode("utf-8-sig")
