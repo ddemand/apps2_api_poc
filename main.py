@@ -77,7 +77,7 @@ domain_url = get_key("DOMAIN_URL")
 destination_field = get_key("DESTINATION_FIELD")
 trackor_type = get_key("TRACKOR_TYPE")
 csv_dimension_column = get_key("CSV_DIMENSION_COLUMN")
-base_url = f'https://{domain_url}.onevizion.com/api/v3/trackor/'
+base_url = f'{domain_url}.onevizion.com/api/v3/trackor/'
 
 if not all([apps2_api_key, azure_foundry_api_key, azure_url, domain_url, base_url]):
     raise RuntimeError("One or more required API keys are missing")
